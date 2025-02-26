@@ -1,0 +1,9 @@
+[
+    { "name": "Room 101", "x": 120, "y": 180 },
+    { "name": "Library", "x": 250, "y": 290 },
+    { "name": "Cafeteria", "x": 600, "y": 450 },
+    { "name": "Main Entrance", "x": 50, "y": 100 },
+    { "name": "Room 202", "x": 250, "y": 320 }
+]
+
+

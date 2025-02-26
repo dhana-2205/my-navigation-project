@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Scanner</title>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #reader { width: 300px; margin: auto; }
+    </style>
+</head>
+<body>
+    <h2>Scan a QR Code</h2>
+    <div id="reader"></div>
+    <p id="status">Waiting for scan...</p>
+
+    <script>
+        function onScanSuccess(decodedText) {
+            document.getElementById("status").innerText = "Scanned: " + decodedText;
+            setTimeout(() => {
+                window.location.href = "map.html?location=" + encodeURIComponent(decodedText);
+            }, 1000);
+        }
+
+        function onScanFailure(error) {
+            console.warn(`QR scan error: ${error}`);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const scanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
+            scanner.render(onScanSuccess, onScanFailure);
+        });
+		
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<div id="qrcode"></div>
+
+<script>
+    // Replace with your actual hosted website URL
+    const websiteURL = "https://yourwebsite.com/index.html";  
+
+    // Generate QR Code with URL
+    new QRCode(document.getElementById("qrcode"), {
+        text: websiteURL,
+        width: 200,
+        height: 200
+    });
+</script>
+</body>
+</html>

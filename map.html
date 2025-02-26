@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Navigation Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    
+   <p id="current-location">Current Location: </p>
+   <label for="way">Select Destination:</label>
+   <select id="way">
+	<option value="">-- Choose a destination --</option>
+	<option value="Library">Library</option>
+	<option value="Cafeteria">Cafe</option>
+	</select>
+	
+    <button onclick="navigate()">Navigate</button>
+ 
+    <div id="map-container">
+        <img id="map" src="assests/cs.png" alt="Indoor Map">
+        <canvas id="map-overlay"></canvas>
+		<p id="current-location"></p>
+		 <div id="current-marker" class="marker"></div>
+        <div id="destination-marker" class="marker"></div>
+		  <svg id="path-svg"></svg>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Navigation QR Code</title>
+</head>
+<body>
+
+    <h2>QR Code for  CS Department</h2>
+    <div id="qrcode"></div>
+
+    <!-- Load QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        // Define the location details
+        const locationData = {
+            name: "Computer Science Department",
+            floor: 1,
+            latitude: 9.9145,  // Example indoor coordinates
+            longitude: 78.1253
+        };
+
+        // Convert location details to a string format
+        const qrData = JSON.stringify(locationData);  
+
+        // Generate QR Code using qrcode.js
+        new QRCode(document.getElementById("qrcode"), {
+            text: qrData,
+            width: 200,
+            height: 200
+        });
+    </script>
+</body>
+</html>
